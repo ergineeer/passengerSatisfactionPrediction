@@ -1,4 +1,4 @@
-# passengerSatisfactionPrediction
+# Passenger Satisfaction Prediction
 
 A simple web application connected to Watson Machine Learning service, created by using Flask for web framework and Bootstrap for user interface.  
 
