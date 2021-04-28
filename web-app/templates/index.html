@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AutoAI Customer Satisfaction Prediction</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+
+<body style="background-color: #F1F4F8">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Satisfaction Estimation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Project Document</a>
+            <!-- Link will be added after May 2, 2021 -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/ergineeer/passengerSatisfactionPrediction">Github Repo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Jupyter Notebook</a>
+            <!-- Link will be added after May 2, 2021 -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_latest/wsj/analyze-data/autoai-details.html">AutoAI Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/ergineeer">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <center>
+    <div style="app-header">
+      <h2>Airlines Passenger Satisfaction Estimator</h2>
+      <p>Estimation by IBM Watson Machine Learning Service and AutoAI Tool</p>
+      <p>Please provide necessary information below to predict satisfaction.</p>
+    </div>
+  </center>
+
+  <form class="text-center" style="border-style: solid; color: #757575; margin-bottom:10px" method="POST" action="/predict">
+    <table width="100%">
+      <tbody>
+          <tr>
+            <td>
+              <div class="form-field">{{ form.Gender.label }} {{ form.Gender }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <div class="form-field ">{{ form.CustomerType.label }} {{ form.CustomerType }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.Age.label }} {{ form.Age }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.TypeOfTravel.label }} {{ form.TypeOfTravel }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.Class.label }} {{ form.Class }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.FlightDistance.label }} {{ form.FlightDistance }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.SeatComfort.label }} {{ form.SeatComfort }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.DepartureArrivalTimeConvenient.label }} {{ form.DepartureArrivalTimeConvenient }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.FoodAndDrink.label }} {{ form.FoodAndDrink }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.GateLocation.label }} {{ form.GateLocation }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.InflightWifiService.label }} {{ form.InflightWifiService }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.InflightEntertainment.label }} {{ form.InflightEntertainment }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.OnlineSupport.label }} {{ form.OnlineSupport }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.EaseOfOnlineBooking.label }} {{ form.EaseOfOnlineBooking }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.OnboardService.label }} {{ form.OnboardService }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.LegRoomService.label }} {{ form.LegRoomService }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.BaggageHandling.label }} {{ form.BaggageHandling }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.CheckinService.label }} {{ form.CheckinService }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.Cleanliness.label }} {{ form.Cleanliness }}</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="form-field ">{{ form.OnlineBoarding.label }} {{ form.OnlineBoarding }}</div>
+            </td>
+          </tr>
+
+
+      </tbody>
+    </table>
+    <input id="submit" style="margin-bottom: 10px;" name="submit" type="submit" onclick="startSpinner()" value="Predict">
+    
+    <br>
+  </form>
+
+  <div class="d-flex justify-content-center">
+    <div id="loader" style="color:black; display: none;" class="spinner-border"></div>
+  </div>
+  <div class="output-container">
+    <center>
+      <div id="output">
+        <h5 id="a">Customer is: </h5>
+        <h3 id="b">{{ form.abc }}</h3>
+      </div>
+    </center>
+  </div>
+
+  <script>
+
+window.onload = function exampleFunction() {} 
+    function startSpinner() {
+      var x = document.getElementById("loader");
+      x.style.display = "block";
+      var output = document.getElementById("output");
+      output.style.display = "none"
+      setTimeout(function () {
+        var y = document.getElementById("output");
+        var x = document.getElementById("loader");
+        var a = document.getElementById("a");
+        var b = document.getElementById("b");
+        x.style.display = "none";
+        y.style.display = "block"
+        a.style.display = "block"
+        b.style.display = "block"
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
