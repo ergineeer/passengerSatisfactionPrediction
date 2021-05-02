@@ -1,2 +1,2 @@
 # Jupyter Notebooks 
-Notebooks regarding the Project will be added after May 2, 2021.
+Notebooks regarding the Project is provided privately and will be added here soon.
