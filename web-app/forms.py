@@ -26,6 +26,6 @@ class PredictForm(FlaskForm):
 	CheckinService = IntegerField('Check-in Service: ')
 	Cleanliness = IntegerField('Cleanliness: ')
 	OnlineBoarding = IntegerField('Online Boarding: ')
-
 	submit = SubmitField('Predict')
-	abc = ""
+	sat = "" 
+	satProbability = ""
