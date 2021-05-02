@@ -12,15 +12,13 @@ import json
 app = Flask(__name__, instance_relative_config=False)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.secret_key = 'development key'
-
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0')
 
 @app.route('/', methods=('GET', 'POST'))
-
 def startApp():
     form = PredictForm()
-    return render_template('index.html', form=form)
+    return render_template('index.html', form = form)
 
 @app.route('/predict', methods=('GET', 'POST'))
 def predict():
@@ -48,11 +46,12 @@ def predict():
         response_scoring = requests.post('<ENDPOINT DIRECT LINK>', json=payload_scoring, headers={'Authorization': 'Bearer ' + "<IAM ACCESS TOKEN>"})
 
         output = json.loads(response_scoring.text)
-        print(output)
         for key in output:
-          ab = output[key]
-          print(ab)
-        for key in ab[0]:
-          bc = ab[0][key]
-        form.abc = bc 
-        return render_template('index.html', form=form)
+          tempVar = output[key]
+
+        for key in tempVar[0]:
+          tempVar_2 = tempVar[0][key]
+          
+        form.sat = tempVar_2[0][0]
+        form.satProbability = format(tempVar_2[0][1][1]*100,".2f")
+        return render_template('index.html', form = form)
