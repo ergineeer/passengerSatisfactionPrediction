@@ -1,2 +1,2 @@
 # Jupyter Notebooks 
-Notebooks regarding the Project is provided privately and will be added here soon.
+Notebooks regarding the project is privately provided and will be included here soon.
