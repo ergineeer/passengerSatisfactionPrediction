@@ -6,5 +6,5 @@ The model, XGBoost Classifier trained within IBM's AutoAI tool, deployed is to d
 Jupyter notebook and direct links to Jupyter notebook will be added after May 2, 2021.
 
 <p align="center">
-  <img src="https://github.com/ergineeer/passengerSatisfactionPrediction/blob/main/images/Sample%20(1).jpg?raw=true" width="800" title="hover text">
+  <img src="https://github.com/ergineeer/passengerSatisfactionPrediction/blob/main/images/Sample%20(1).jpg?raw=true" width="600" title="hover text">
 </p>
